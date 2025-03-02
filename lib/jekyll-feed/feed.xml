@@ -63,6 +63,11 @@
   {% if page.category %}
     {% assign posts = posts | where: "categories", page.category %}
   {% endif %}
+  <!-- combine weeklies to feed -->
+  {% if page.collection == "posts" %}
+    {% assign posts = site.posts | concat: site.weeklies %}
+  {% endif %}
+  
   {% unless site.show_drafts %}
     {% assign posts = posts | where_exp: "post", "post.draft != true" %}
   {% endunless %}
