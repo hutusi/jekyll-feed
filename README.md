@@ -33,6 +33,15 @@ The plugin will automatically use any of the following configuration variables, 
 * `description` - A longer description of what your site is about, e.g., "Where I blog about Jekyll and other awesome things"
 * `url` - The URL to your site, e.g., `https://example.com`. If none is provided, the plugin will try to use `site.github.url`.
 * `author` - Global author information (see below)
+* `feed.icon` - Icon with 1:1 proportions for readers to use for the blog feed (not supported by all readers; often overridden by a favicon or site icon)
+* `feed.logo` - Logo with 2:1 proportions for readers to use for the blog feed (not supported by all readers). 
+  For example, both of the preceding can be expressed:
+  ```yml
+  feed:
+    icon: /images/icon.png
+    logo: /images/logo.png
+  ```
+
 
 ### Already have a feed path?
 
@@ -70,7 +79,7 @@ Additionally, the plugin will use the following values, if present in a post's Y
 
 There are several ways to convey author-specific information. Author information is found in the following order of priority:
 
-1. An `author` object, in the documents's front matter, e.g.:
+1. An `author` object, in the document's front matter, e.g.:
 
   ```yml
   author:
@@ -190,7 +199,7 @@ feed:
       path: "/changes.atom"
 ```
 
-Finally, collections can also have category feeds which are outputted as `/feed/<COLLECTION>/<CATEGORY>.xml`. Specify categories like so:
+Finally, collections can also have category feeds that are outputted as `/feed/<COLLECTION>/<CATEGORY>.xml`. Specify categories like so:
 
 ```yml
 feed:
@@ -206,15 +215,15 @@ feed:
 
 Optional flag `excerpt_only` allows you to exclude post content from the Atom feed. Default value is `false` for backward compatibility.
 
-When in `config.yml` is `true` than all posts in feed will be without `<content>` tags.
+When in `config.yml` is `true` then all posts in feed will be without `<content>` tags.
 
 ```yml
 feed:
   excerpt_only: true
 ```
 
-The same flag can be used directly in post file. It will be disable `<content>` tag for selected post.
-Settings in post file has higher priority than in config file.
+The same flag can be used directly in post file. It will disable `<content>` tag for selected post.
+Settings in post file have higher priority than in config file.
 
 ## Tags
 
